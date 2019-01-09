@@ -8,28 +8,39 @@
 
 import UIKit
 import RealmSwift
+import SnapKit
 
 class SearchResultsController: UIViewController {
 
-    @IBOutlet var tableView: UITableView!
-    @IBOutlet var collectionView: UICollectionView!
+    @IBOutlet var scrollView: UIScrollView!
+    @IBOutlet var contentStackView: UIStackView!
+
+    let hotKeywordsViewController = HotKeywordsViewController()
+    let searchKeywordsViewControllers = SearchKeywordsViewControllers()
     
     var hotProducts: [HotProduct] = [] {
-        didSet {
-            guard hotProducts.count > 0 else {
-                return tableView.tableHeaderView = nil
-            }
-            loadViewIfNeeded()
-            collectionView.reloadData()
-        }
+        didSet { hotKeywordsViewController.hotProducts = hotProducts }
     }
     private var realmNotificationToken: NotificationToken?
     var searchedKeywordResults = SearchedKeyword.retrieve().filter("FALSEPREDICATE")
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        addChild(hotKeywordsViewController)
+        contentStackView.addArrangedSubview(hotKeywordsViewController.view)
+        hotKeywordsViewController.didMove(toParent: self)
+        hotKeywordsViewController.view.snp.makeConstraints {
+            $0.height.equalTo(209)
+        }
+        
+//        addChild(searchKeywordsViewControllers)
+//        contentStackView.addArrangedSubview(searchKeywordsViewControllers.view)
+//        searchKeywordsViewControllers.didMove(toParent: self)
+//        searchKeywordsViewControllers.view.snp.makeConstraints {
+//            $0.height.equalTo(209)
+//        }
+
         prepareHotProductCollectionView()
-        prepareTableView()
         observeSearchedKeywordsOnRealm()
 
         // TODO: create keyboard manager or intergrate IQKeyboardManagerSwift
@@ -42,63 +53,30 @@ class SearchResultsController: UIViewController {
         guard let keyboardbRect = (userInfo[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue else {
             return
         }
-        tableView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: keyboardbRect.height, right: 0)
+        scrollView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: keyboardbRect.height, right: 0)
     }
 
     @objc func handleKeyboardWillHide(_ notification: Notification) {
-        tableView.contentInset = .zero
+        scrollView.contentInset = .zero
     }
 
     private func observeSearchedKeywordsOnRealm() {
         searchedKeywordResults = SearchedKeyword.retrieve()
             .sorted(byKeyPath: SearchedKeyword.Property.createdDate.rawValue, ascending: false)
-        realmNotificationToken = searchedKeywordResults.observe { [weak tableView] changes in
-            guard let tableView = tableView else { return }
-            switch changes {
-            case .initial:
-                tableView.reloadData()
-            case .update(_, let deletions, let insertions, let updates):
-                    tableView.applyChanges(deletions: deletions, insertions: insertions, updates: updates)
-            case .error: break
-            }
-        }
+//        realmNotificationToken = searchedKeywordResults.observe { [weak tableView] changes in
+//            guard let tableView = tableView else { return }
+//            switch changes {
+//            case .initial:
+//                tableView.reloadData()
+//            case .update(_, let deletions, let insertions, let updates):
+//                    tableView.applyChanges(deletions: deletions, insertions: insertions, updates: updates)
+//            case .error: break
+//            }
+//        }
     }
 
     private func prepareHotProductCollectionView() {
-        collectionView.contentInset = UIEdgeInsets(top: 0, left: 8, bottom: 0, right: 8)
-        guard let flowLayout = collectionView?.collectionViewLayout as? UICollectionViewFlowLayout else { return }
-        flowLayout.minimumLineSpacing = 8
-    }
-
-    private func prepareTableView() {
-        tableView.registerFromNib(forHeaderFooterViewClass: SearchedKeywordSearchResultTableHeaderView.self)
-        tableView.sectionHeaderHeight = 64
-        tableView.allowsSelection = false
-        tableView.tableFooterView = UIView()
-    }
-}
-
-extension SearchResultsController: UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return hotProducts.count
-    }
-
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(for: indexPath) as HotProductSearchResultCollectionViewCell
-        cell.hotProduct = hotProducts[indexPath.row]
-        cell.indexPath = indexPath
-        return cell
-    }
-
-    func collectionView(_ collectionView: UICollectionView, didEndDisplaying cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
-        let cell = collectionView.dequeueReusableCell(for: indexPath) as HotProductSearchResultCollectionViewCell
-        cell.hotProduct = nil
-    }
-
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        // 60 is the longest word in vietnamese
-        let textWidth = hotProducts[indexPath.row].keyword.calculateWidth(with: .systemFont(ofSize: 14)) / 2 + 60
-        return CGSize(width: textWidth < 112 ? 112 : textWidth, height: 156)
+        
     }
 }
 

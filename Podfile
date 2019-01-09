@@ -9,6 +9,7 @@ pod 'Realm'
 pod 'SwiftyJSON'
 pod 'AlamofireImage'
 pod 'RealmSwift'
+pod 'SnapKit'
 
 target 'Tiki home testTests' do
     inherit! :search_paths

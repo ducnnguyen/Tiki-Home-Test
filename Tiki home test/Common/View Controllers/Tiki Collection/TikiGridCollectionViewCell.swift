@@ -10,7 +10,7 @@ import UIKit
 import AlamofireImage
 import Alamofire
 
-class HotProductSearchResultCollectionViewCell: UICollectionViewCell {
+class TikiGridCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet var productImageView: UIImageView!
     @IBOutlet var productContainerView: UIView!

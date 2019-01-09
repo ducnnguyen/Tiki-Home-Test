@@ -22,4 +22,9 @@ extension UICollectionView {
         }
         return dequeuedView
     }
+    
+    func registerFromNib(forCellClass cellClass: UICollectionViewCell.Type) {
+        let nib = UINib(nibName: cellClass.className, bundle: nil)
+        register(nib, forCellWithReuseIdentifier: cellClass.className)
+    }
 }
