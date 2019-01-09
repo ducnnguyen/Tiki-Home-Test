@@ -78,15 +78,27 @@
                                                                                     <constraint firstAttribute="width" constant="96" id="fdi-SE-sOW"/>
                                                                                 </constraints>
                                                                             </imageView>
-                                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="200" verticalHuggingPriority="200" horizontalCompressionResistancePriority="700" verticalCompressionResistancePriority="700" ambiguous="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lgp-3u-lqR" customClass="PaddingLabel" customModule="Tiki_home_test" customModuleProvider="target">
-                                                                                <rect key="frame" x="0.0" y="104" width="250" height="17"/>
-                                                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                                                <nil key="textColor"/>
-                                                                                <nil key="highlightedColor"/>
-                                                                            </label>
+                                                                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Gj1-3L-kK9">
+                                                                                <rect key="frame" x="4" y="104" width="242" height="128"/>
+                                                                                <subviews>
+                                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="200" verticalHuggingPriority="200" horizontalCompressionResistancePriority="700" verticalCompressionResistancePriority="700" ambiguous="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lgp-3u-lqR">
+                                                                                        <rect key="frame" x="4" y="0.0" width="234" height="128"/>
+                                                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                                                        <nil key="textColor"/>
+                                                                                        <nil key="highlightedColor"/>
+                                                                                    </label>
+                                                                                </subviews>
+                                                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                                <constraints>
+                                                                                    <constraint firstItem="Lgp-3u-lqR" firstAttribute="centerY" secondItem="Gj1-3L-kK9" secondAttribute="centerY" id="N5q-hO-2Lf"/>
+                                                                                    <constraint firstItem="Lgp-3u-lqR" firstAttribute="leading" secondItem="Gj1-3L-kK9" secondAttribute="leading" constant="4" id="R25-lw-1Jz"/>
+                                                                                    <constraint firstAttribute="trailing" secondItem="Lgp-3u-lqR" secondAttribute="trailing" constant="4" id="jIN-6r-q8Y"/>
+                                                                                    <constraint firstItem="Lgp-3u-lqR" firstAttribute="centerX" secondItem="Gj1-3L-kK9" secondAttribute="centerX" id="vLV-9M-1SI"/>
+                                                                                </constraints>
+                                                                            </view>
                                                                         </subviews>
                                                                         <constraints>
-                                                                            <constraint firstItem="Lgp-3u-lqR" firstAttribute="width" secondItem="4rx-1y-03t" secondAttribute="width" id="f0N-kf-5V6"/>
+                                                                            <constraint firstItem="Gj1-3L-kK9" firstAttribute="width" secondItem="4rx-1y-03t" secondAttribute="width" constant="-8" id="TlT-7F-v2e"/>
                                                                         </constraints>
                                                                     </stackView>
                                                                 </subviews>
@@ -98,6 +110,7 @@
                                                                 <constraint firstItem="4rx-1y-03t" firstAttribute="leading" secondItem="G2X-0d-aAj" secondAttribute="leading" id="qmf-nk-dCo"/>
                                                             </constraints>
                                                             <connections>
+                                                                <outlet property="productContainerView" destination="Gj1-3L-kK9" id="0Vl-VV-FI3"/>
                                                                 <outlet property="productImageView" destination="hfM-t6-UvB" id="IHm-Bu-e74"/>
                                                                 <outlet property="productLabel" destination="Lgp-3u-lqR" id="qkS-US-LVP"/>
                                                             </connections>

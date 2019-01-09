@@ -13,6 +13,7 @@ import Alamofire
 class HotProductSearchResultCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet var productImageView: UIImageView!
+    @IBOutlet var productContainerView: UIView!
     @IBOutlet var productLabel: UILabel!
 
     let hotProductColors: [UIColor] = [UIColor(hex: 0x16702e), UIColor(hex: 0x005a51), UIColor(hex: 0x996c00), UIColor(hex: 0x5c0a6b), UIColor(hex: 0x006d90), UIColor(hex: 0x974e06), UIColor(hex: 0x99272e), UIColor(hex: 0x89221f), UIColor(hex: 0x00345d)]
@@ -21,7 +22,7 @@ class HotProductSearchResultCollectionViewCell: UICollectionViewCell {
     let placeHolderImage = #imageLiteral(resourceName: "place holder")
     var indexPath: IndexPath! {
         didSet {
-            productLabel.backgroundColor = hotProductColors[indexPath.row % hotProductColors.count]
+            productContainerView.backgroundColor = hotProductColors[indexPath.row % hotProductColors.count]
         }
     }
 
@@ -44,8 +45,8 @@ class HotProductSearchResultCollectionViewCell: UICollectionViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         productLabel.textColor = .white
-        productLabel.layer.cornerRadius = 4
-        productLabel.clipsToBounds = true
+        productContainerView.layer.cornerRadius = 4
+        productContainerView.clipsToBounds = true
         productImageView.image = placeHolderImage
     }
 }

@@ -68,7 +68,6 @@ class SearchResultsController: UIViewController {
         collectionView.contentInset = UIEdgeInsets(top: 0, left: 8, bottom: 0, right: 8)
         guard let flowLayout = collectionView?.collectionViewLayout as? UICollectionViewFlowLayout else { return }
         flowLayout.minimumLineSpacing = 8
-        flowLayout.itemSize = CGSize(width: 112, height: 165)
     }
 
     private func prepareTableView() {
@@ -79,7 +78,7 @@ class SearchResultsController: UIViewController {
     }
 }
 
-extension SearchResultsController: UICollectionViewDataSource, UICollectionViewDelegate {
+extension SearchResultsController: UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return hotProducts.count
     }
@@ -94,6 +93,12 @@ extension SearchResultsController: UICollectionViewDataSource, UICollectionViewD
     func collectionView(_ collectionView: UICollectionView, didEndDisplaying cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
         let cell = collectionView.dequeueReusableCell(for: indexPath) as HotProductSearchResultCollectionViewCell
         cell.hotProduct = nil
+    }
+
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        // 60 is the longest word in vietnamese
+        let textWidth = hotProducts[indexPath.row].keyword.calculateWidth(with: .systemFont(ofSize: 14)) / 2 + 60
+        return CGSize(width: textWidth < 112 ? 112 : textWidth, height: 156)
     }
 }
 
