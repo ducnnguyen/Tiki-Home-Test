@@ -19,6 +19,7 @@ class HotKeywordsViewController: TikiGridViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         headerLabel.text = "Hot Keywords"
+        deleteAllButton.isHidden = true
     }
 }
 

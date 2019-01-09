@@ -41,6 +41,17 @@ class TikiGridCollectionViewCell: UICollectionViewCell {
             }
         }
     }
+    
+    var searchedKeyword: SearchedKeyword? {
+        didSet {
+            productImageView.isHidden = true
+            guard let searchedKeyword = searchedKeyword else {
+                productLabel.text = nil
+                return
+            }
+            productLabel.text = searchedKeyword.text
+        }
+    }
 
     override func awakeFromNib() {
         super.awakeFromNib()

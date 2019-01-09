@@ -13,39 +13,53 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="TikiGridViewController" customModule="Tiki_home_test" customModuleProvider="target">
             <connections>
                 <outlet property="collectionView" destination="uod-Qk-bwp" id="CFz-km-faw"/>
+                <outlet property="collectionViewHeightConstraint" destination="DQt-cx-1VX" id="VUb-Ku-f7M"/>
+                <outlet property="deleteAllButton" destination="wrn-tz-cI0" id="6qz-Nz-1Lo"/>
                 <outlet property="headerLabel" destination="BOb-cC-mzV" id="kz7-Dd-NVm"/>
                 <outlet property="view" destination="PUC-t9-Xxr" id="VCA-fb-ZJ5"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <view contentMode="scaleToFill" id="PUC-t9-Xxr">
+        <view contentMode="scaleToFill" ambiguous="YES" id="PUC-t9-Xxr">
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
-                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="EPy-aj-J0A">
-                    <rect key="frame" x="0.0" y="458" width="375" height="209"/>
+                <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="EPy-aj-J0A">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Obe-l8-rPz">
                             <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                             <subviews>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Header label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BOb-cC-mzV">
+                                <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kJU-UG-r4g">
                                     <rect key="frame" x="8" y="0.0" width="359" height="44"/>
-                                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
-                                    <nil key="textColor"/>
-                                    <nil key="highlightedColor"/>
-                                </label>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="248" verticalHuggingPriority="251" text="Header label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BOb-cC-mzV">
+                                            <rect key="frame" x="0.0" y="0.0" width="295" height="44"/>
+                                            <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wrn-tz-cI0">
+                                            <rect key="frame" x="295" y="0.0" width="64" height="44"/>
+                                            <state key="normal" title="Delete all"/>
+                                            <connections>
+                                                <action selector="deleteAllButtonTapped" destination="-1" eventType="touchUpInside" id="9s0-rs-fu6"/>
+                                            </connections>
+                                        </button>
+                                    </subviews>
+                                </stackView>
                             </subviews>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <constraints>
-                                <constraint firstAttribute="bottom" secondItem="BOb-cC-mzV" secondAttribute="bottom" id="B8f-sQ-6M7"/>
-                                <constraint firstItem="BOb-cC-mzV" firstAttribute="top" secondItem="Obe-l8-rPz" secondAttribute="top" id="Ex3-np-kez"/>
-                                <constraint firstAttribute="trailing" secondItem="BOb-cC-mzV" secondAttribute="trailing" constant="8" id="WF6-SP-Gw3"/>
+                                <constraint firstItem="kJU-UG-r4g" firstAttribute="leading" secondItem="Obe-l8-rPz" secondAttribute="leading" constant="8" id="Vzl-Qe-P2t"/>
+                                <constraint firstItem="kJU-UG-r4g" firstAttribute="top" secondItem="Obe-l8-rPz" secondAttribute="top" id="aZ2-SI-VQX"/>
                                 <constraint firstAttribute="height" constant="44" id="heM-Hg-8hX"/>
-                                <constraint firstItem="BOb-cC-mzV" firstAttribute="leading" secondItem="Obe-l8-rPz" secondAttribute="leading" constant="8" id="zDa-EV-CIg"/>
+                                <constraint firstAttribute="bottom" secondItem="kJU-UG-r4g" secondAttribute="bottom" id="qc5-T5-tHg"/>
+                                <constraint firstAttribute="trailing" secondItem="kJU-UG-r4g" secondAttribute="trailing" constant="8" id="wAZ-8i-1XD"/>
                             </constraints>
                         </view>
-                        <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="uod-Qk-bwp">
-                            <rect key="frame" x="0.0" y="44" width="375" height="165"/>
+                        <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="uod-Qk-bwp">
+                            <rect key="frame" x="0.0" y="44" width="375" height="623"/>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="165" id="DQt-cx-1VX"/>
@@ -63,9 +77,6 @@
                             </connections>
                         </collectionView>
                     </subviews>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="209" id="nez-kV-uIM"/>
-                    </constraints>
                 </stackView>
             </subviews>
             <color key="backgroundColor" red="0.0" green="0.97680455450000003" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -78,5 +89,10 @@
             <viewLayoutGuide key="safeArea" id="q05-n1-WbV"/>
             <point key="canvasLocation" x="25" y="-65"/>
         </view>
+        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="goM-ar-J1d">
+            <rect key="frame" x="0.0" y="0.0" width="46" height="30"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <state key="normal" title="Button"/>
+        </button>
     </objects>
 </document>

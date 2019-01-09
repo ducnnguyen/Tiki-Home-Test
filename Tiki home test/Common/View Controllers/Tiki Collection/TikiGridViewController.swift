@@ -10,6 +10,8 @@ import UIKit
 
 class TikiGridViewController: UIViewController {
 
+    @IBOutlet var deleteAllButton: UIButton!
+    @IBOutlet var collectionViewHeightConstraint: NSLayoutConstraint!
     @IBOutlet var headerLabel: UILabel!
     @IBOutlet var collectionView: UICollectionView!
 
@@ -28,5 +30,9 @@ class TikiGridViewController: UIViewController {
         collectionView.registerFromNib(forCellClass: TikiGridCollectionViewCell.self)
         guard let flowLayout = collectionView?.collectionViewLayout as? UICollectionViewFlowLayout else { return }
         flowLayout.minimumLineSpacing = 8
+    }
+    
+    @IBAction func deleteAllButtonTapped() {
+        SearchedKeyword.deleteAll()
     }
 }

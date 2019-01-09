@@ -9,6 +9,22 @@
 import UIKit
 
 extension UICollectionView {
+    func applyChanges(deletions: [IndexPath], insertions: [IndexPath], updates: [IndexPath]) {
+        performBatchUpdates({
+            deleteItems(at: deletions)
+            insertItems(at: insertions)
+            reloadItems(at: updates)
+        })
+    }
+    
+    func applyChanges(deletions: [Int], insertions: [Int], updates: [Int]) {
+        performBatchUpdates({
+            deleteItems(at: deletions.map(IndexPath.from))
+            insertItems(at: insertions.map(IndexPath.from))
+            reloadItems(at: updates.map(IndexPath.from))
+        }, completion: nil)
+    }
+    
     func dequeueReusableCell<T: UICollectionViewCell>(for indexPath: IndexPath) -> T {
         guard let dequeuedCell = dequeueReusableCell(withReuseIdentifier: T.className, for: indexPath) as? T else {
             fatalError("need to set identifier or register your cell")
