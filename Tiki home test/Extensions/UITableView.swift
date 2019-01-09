@@ -9,6 +9,14 @@
 import UIKit
 
 extension UITableView {
+    func applyChanges(deletions: [Int], insertions: [Int], updates: [Int]) {
+        performBatchUpdates({
+            deleteRows(at: deletions.map(IndexPath.from), with: .automatic)
+            insertRows(at: insertions.map(IndexPath.from), with: .automatic)
+            reloadRows(at: updates.map(IndexPath.from), with: .automatic)
+        })
+    }
+
     func dequeueReusableHeaderFooterView<T: UITableViewHeaderFooterView>() -> T {
         guard let dequeuedView = dequeueReusableHeaderFooterView(withIdentifier: T.className) as? T else {
             fatalError("need to set identifier or register your reusable header footer view")
@@ -21,10 +29,6 @@ extension UITableView {
             fatalError("need to set identifier or register your cell")
         }
         return dequeuedCell
-    }
-
-    func reloadRows(at indexPaths: [IndexPath]) {
-        reloadRows(at: indexPaths, with: .none)
     }
 
     func registerFromNib(forCellClass cellClass: UITableViewCell.Type) {

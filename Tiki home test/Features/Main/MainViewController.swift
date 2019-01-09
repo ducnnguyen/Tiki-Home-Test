@@ -25,7 +25,6 @@ class MainViewController: UIViewController {
             case .success(let hotProducts):
                 self.searchResultsController.hotProducts = hotProducts
             case .failure(let error):
-                // TODO: handle error
                 print(error.rawValue)
             }
         }
@@ -37,6 +36,7 @@ class MainViewController: UIViewController {
         searchController.dimsBackgroundDuringPresentation = false
         let searchBar = searchController.searchBar
         searchBar.placeholder = "Product name, branch..."
+        searchBar.delegate = searchResultsController
         navigationItem.hidesSearchBarWhenScrolling = false
         navigationItem.titleView = searchController.searchBar
         searchController.searchResultsUpdater = searchResultsController

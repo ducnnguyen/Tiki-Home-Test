@@ -119,6 +119,36 @@
                                         <constraint firstAttribute="trailing" secondItem="oxd-DG-qUb" secondAttribute="trailing" id="tb3-re-iAg"/>
                                     </constraints>
                                 </view>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="SearchedKeywordSearchResultTableViewCell" rowHeight="67" id="tUW-pj-yVb" customClass="SearchedKeywordSearchResultTableViewCell" customModule="Tiki_home_test" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="237" width="375" height="67"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="tUW-pj-yVb" id="972-Fw-ryV">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="66.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ie6-Bw-tB0">
+                                                    <rect key="frame" x="23" y="11" width="329" height="44"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="44" id="Un1-Nl-uFL"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="bottomMargin" secondItem="ie6-Bw-tB0" secondAttribute="bottom" id="1El-n2-deJ"/>
+                                                <constraint firstItem="ie6-Bw-tB0" firstAttribute="top" secondItem="972-Fw-ryV" secondAttribute="topMargin" id="XPR-Wb-Tex"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="ie6-Bw-tB0" secondAttribute="trailing" constant="8" id="etb-22-5Pp"/>
+                                                <constraint firstItem="ie6-Bw-tB0" firstAttribute="leading" secondItem="972-Fw-ryV" secondAttribute="leadingMargin" constant="8" id="ydo-L3-CEM"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="keywordLabel" destination="ie6-Bw-tB0" id="wTk-6V-i5G"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
                                 <connections>
                                     <outlet property="dataSource" destination="aza-e7-AXT" id="txa-Hp-LF4"/>
                                     <outlet property="delegate" destination="aza-e7-AXT" id="3FK-3P-AuJ"/>

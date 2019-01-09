@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import RealmSwift
 
 class SearchResultsController: UIViewController {
 
@@ -22,11 +23,29 @@ class SearchResultsController: UIViewController {
             collectionView.reloadData()
         }
     }
+    private var realmNotificationToken: NotificationToken?
+    var searchedKeywordResults = SearchedKeyword.retrieve().filter("FALSEPREDICATE")
 
     override func viewDidLoad() {
         super.viewDidLoad()
         prepareHotProductCollectionView()
         prepareTableView()
+        observeSearchedKeywordsOnRealm()
+    }
+
+    func observeSearchedKeywordsOnRealm() {
+        searchedKeywordResults = SearchedKeyword.retrieve()
+            .sorted(byKeyPath: SearchedKeyword.Property.createdDate.rawValue, ascending: false)
+        realmNotificationToken = searchedKeywordResults.observe { [weak tableView] changes in
+            guard let tableView = tableView else { return }
+            switch changes {
+            case .initial:
+                tableView.reloadData()
+            case .update(_, let deletions, let insertions, let updates):
+                    tableView.applyChanges(deletions: deletions, insertions: insertions, updates: updates)
+            case .error: break
+            }
+        }
     }
 
     private func prepareHotProductCollectionView() {
@@ -37,7 +56,10 @@ class SearchResultsController: UIViewController {
     }
 
     private func prepareTableView() {
-
+        tableView.registerFromNib(forHeaderFooterViewClass: SearchedKeywordSearchResultTableHeaderView.self)
+        tableView.sectionHeaderHeight = 64
+        tableView.allowsSelection = false
+        tableView.tableFooterView = UIView()
     }
 }
 
@@ -61,16 +83,37 @@ extension SearchResultsController: UICollectionViewDataSource, UICollectionViewD
 
 extension SearchResultsController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 0
+        return searchedKeywordResults.count
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        return UITableViewCell()
+        let cell = tableView.dequeueReusableCell(for: indexPath) as SearchedKeywordSearchResultTableViewCell
+        cell.keywordLabel.text = searchedKeywordResults[indexPath.row].text
+        return cell
+    }
+
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let headerView = tableView.dequeueReusableHeaderFooterView() as SearchedKeywordSearchResultTableHeaderView
+        headerView.deleteButton.removeTarget(self, action: #selector(deleteButtonTapped), for: .touchUpInside)
+        headerView.deleteButton.addTarget(self, action: #selector(deleteButtonTapped), for: .touchUpInside)
+        return headerView
+    }
+
+    @objc func deleteButtonTapped() {
+        SearchedKeyword.deleteAll()
     }
 }
 
 extension SearchResultsController: UISearchResultsUpdating {
     func updateSearchResults(for searchController: UISearchController) {
         view.isHidden = false
+    }
+}
+
+extension SearchResultsController: UISearchBarDelegate {
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        guard let searchedString = searchBar.text else { return }
+        searchBar.text = nil
+        SearchedKeyword.create(with: searchedString)
     }
 }

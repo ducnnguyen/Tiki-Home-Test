@@ -9,7 +9,7 @@ pod 'IQKeyboardManager'
 pod 'Realm'
 pod 'SwiftyJSON'
 pod 'AlamofireImage'
-pod 'Realm'
+pod 'RealmSwift'
 
 target 'Tiki home testTests' do
     inherit! :search_paths

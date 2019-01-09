@@ -8,6 +8,8 @@ PODS:
   - Realm (3.13.0):
     - Realm/Headers (= 3.13.0)
   - Realm/Headers (3.13.0)
+  - RealmSwift (3.13.0):
+    - Realm (= 3.13.0)
   - SwiftyJSON (4.2.0)
 
 DEPENDENCIES:
@@ -17,6 +19,7 @@ DEPENDENCIES:
   - Nimble
   - Quick
   - Realm
+  - RealmSwift
   - SwiftyJSON
 
 SPEC REPOS:
@@ -27,6 +30,7 @@ SPEC REPOS:
     - Nimble
     - Quick
     - Realm
+    - RealmSwift
     - SwiftyJSON
 
 SPEC CHECKSUMS:
@@ -36,8 +40,9 @@ SPEC CHECKSUMS:
   Nimble: 04f732da099ea4d153122aec8c2a88fd0c7219ae
   Quick: 2623cb30d7a7f41ca62f684f679586558f483d46
   Realm: 5edd2ee65406aef591a4f9895de5a3440e51b3d8
+  RealmSwift: be5ebc7930e37cd3376b41cec7f21984528aaa16
   SwiftyJSON: c4bcba26dd9ec7a027fc8eade48e2c911f229e96
 
-PODFILE CHECKSUM: eb153fde4e5192e22ddc858743b56e9d49f2f42a
+PODFILE CHECKSUM: d5e64eb5c7a69a78cc7453e9d7d565b7d8ffc0d2
 
 COCOAPODS: 1.5.3

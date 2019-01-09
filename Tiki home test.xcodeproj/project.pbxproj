@@ -34,6 +34,13 @@
 		C9F3555621E5002A00D8B26D /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9F3555521E5002A00D8B26D /* UIColor.swift */; };
 		C9F3555821E5057000D8B26D /* PaddingLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9F3555721E5057000D8B26D /* PaddingLabel.swift */; };
 		C9F3555A21E506BD00D8B26D /* HotProductSearchResultCollectionHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9F3555921E506BD00D8B26D /* HotProductSearchResultCollectionHeaderView.swift */; };
+		C9F3555F21E5BCDB00D8B26D /* SearchedKeyword.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9F3555E21E5BCDB00D8B26D /* SearchedKeyword.swift */; };
+		C9F3556421E5BF6F00D8B26D /* RealmCrudable.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9F3556321E5BF6F00D8B26D /* RealmCrudable.swift */; };
+		C9F3556721E5C0EB00D8B26D /* RealmManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9F3556621E5C0EB00D8B26D /* RealmManager.swift */; };
+		C9F3556921E5C50100D8B26D /* IndexPath.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9F3556821E5C50100D8B26D /* IndexPath.swift */; };
+		C9F3556B21E5CB0000D8B26D /* SearchedKeywordSearchResultTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9F3556A21E5CB0000D8B26D /* SearchedKeywordSearchResultTableViewCell.swift */; };
+		C9F3556D21E5CF0E00D8B26D /* SearchedKeywordSearchResultTableHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9F3556C21E5CF0E00D8B26D /* SearchedKeywordSearchResultTableHeaderView.swift */; };
+		C9F3556F21E5CF5C00D8B26D /* SearchedKeywordSearchResultTableHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C9F3556E21E5CF5C00D8B26D /* SearchedKeywordSearchResultTableHeaderView.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -80,6 +87,13 @@
 		C9F3555521E5002A00D8B26D /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
 		C9F3555721E5057000D8B26D /* PaddingLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaddingLabel.swift; sourceTree = "<group>"; };
 		C9F3555921E506BD00D8B26D /* HotProductSearchResultCollectionHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HotProductSearchResultCollectionHeaderView.swift; sourceTree = "<group>"; };
+		C9F3555E21E5BCDB00D8B26D /* SearchedKeyword.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchedKeyword.swift; sourceTree = "<group>"; };
+		C9F3556321E5BF6F00D8B26D /* RealmCrudable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmCrudable.swift; sourceTree = "<group>"; };
+		C9F3556621E5C0EB00D8B26D /* RealmManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmManager.swift; sourceTree = "<group>"; };
+		C9F3556821E5C50100D8B26D /* IndexPath.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IndexPath.swift; sourceTree = "<group>"; };
+		C9F3556A21E5CB0000D8B26D /* SearchedKeywordSearchResultTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchedKeywordSearchResultTableViewCell.swift; sourceTree = "<group>"; };
+		C9F3556C21E5CF0E00D8B26D /* SearchedKeywordSearchResultTableHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchedKeywordSearchResultTableHeaderView.swift; sourceTree = "<group>"; };
+		C9F3556E21E5CF5C00D8B26D /* SearchedKeywordSearchResultTableHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchedKeywordSearchResultTableHeaderView.xib; sourceTree = "<group>"; };
 		D072DF4BAE5AA89C37BFC852 /* Pods-Tiki home testTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tiki home testTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Tiki home testTests/Pods-Tiki home testTests.debug.xcconfig"; sourceTree = "<group>"; };
 		E05554077BC5BB70B5A98ECF /* Pods-Tiki home test.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tiki home test.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Tiki home test/Pods-Tiki home test.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -167,6 +181,7 @@
 				C9F3555121E4F36800D8B26D /* URLRequest.swift */,
 				C9F3555321E4F39E00D8B26D /* URL.swift */,
 				C9F3555521E5002A00D8B26D /* UIColor.swift */,
+				C9F3556821E5C50100D8B26D /* IndexPath.swift */,
 				C9F3554D21E4EF0700D8B26D /* Libraries */,
 				C9F3552D21E4B5F300D8B26D /* Protocols */,
 			);
@@ -206,6 +221,9 @@
 				C9F3552621E4B50900D8B26D /* SearchResultsController.storyboard */,
 				C9F3554721E4E37400D8B26D /* HotProductSearchResultCollectionViewCell.swift */,
 				C9F3555921E506BD00D8B26D /* HotProductSearchResultCollectionHeaderView.swift */,
+				C9F3556A21E5CB0000D8B26D /* SearchedKeywordSearchResultTableViewCell.swift */,
+				C9F3556C21E5CF0E00D8B26D /* SearchedKeywordSearchResultTableHeaderView.swift */,
+				C9F3556E21E5CF5C00D8B26D /* SearchedKeywordSearchResultTableHeaderView.xib */,
 			);
 			path = Seach;
 			sourceTree = "<group>";
@@ -241,6 +259,7 @@
 				C9F3553F21E4BE0900D8B26D /* ServiceError.swift */,
 				C9F3554121E4BEDD00D8B26D /* ServiceResult.swift */,
 				C9F3553D21E4BD6D00D8B26D /* HotProduct.swift */,
+				C9F3555D21E5BCA800D8B26D /* Realm */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -249,6 +268,8 @@
 			isa = PBXGroup;
 			children = (
 				C9F3554621E4C0CC00D8B26D /* Functions */,
+				C9F3556221E5BF5100D8B26D /* Protocols */,
+				C9F3556521E5C0DE00D8B26D /* Managers */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -276,6 +297,30 @@
 				C9F3554F21E4EF1E00D8B26D /* ImageDownloader.swift */,
 			);
 			path = AlamofireImage;
+			sourceTree = "<group>";
+		};
+		C9F3555D21E5BCA800D8B26D /* Realm */ = {
+			isa = PBXGroup;
+			children = (
+				C9F3555E21E5BCDB00D8B26D /* SearchedKeyword.swift */,
+			);
+			path = Realm;
+			sourceTree = "<group>";
+		};
+		C9F3556221E5BF5100D8B26D /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				C9F3556321E5BF6F00D8B26D /* RealmCrudable.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+		C9F3556521E5C0DE00D8B26D /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				C9F3556621E5C0EB00D8B26D /* RealmManager.swift */,
+			);
+			path = Managers;
 			sourceTree = "<group>";
 		};
 		CE6B504002692F966F2E687A /* Pods */ = {
@@ -378,6 +423,7 @@
 				C9F3552721E4B50900D8B26D /* SearchResultsController.storyboard in Resources */,
 				C92D1C1A21E484870089FF97 /* Assets.xcassets in Resources */,
 				C92D1C1821E484850089FF97 /* MainViewController.storyboard in Resources */,
+				C9F3556F21E5CF5C00D8B26D /* SearchedKeywordSearchResultTableHeaderView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -404,6 +450,7 @@
 				"${BUILT_PRODUCTS_DIR}/AlamofireImage/AlamofireImage.framework",
 				"${BUILT_PRODUCTS_DIR}/IQKeyboardManager/IQKeyboardManager.framework",
 				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
+				"${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
@@ -414,6 +461,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AlamofireImage.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IQKeyboardManager.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RealmSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -497,10 +545,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				C9F3554221E4BEDD00D8B26D /* ServiceResult.swift in Sources */,
+				C9F3555F21E5BCDB00D8B26D /* SearchedKeyword.swift in Sources */,
 				C9F3555021E4EF1E00D8B26D /* ImageDownloader.swift in Sources */,
 				C92D1C1521E484850089FF97 /* MainViewController.swift in Sources */,
 				C9F3554C21E4E71700D8B26D /* UICollectionView.swift in Sources */,
+				C9F3556721E5C0EB00D8B26D /* RealmManager.swift in Sources */,
 				C9F3552A21E4B56800D8B26D /* NSObject.swift in Sources */,
+				C9F3556921E5C50100D8B26D /* IndexPath.swift in Sources */,
 				C9F3552F21E4B5FE00D8B26D /* UIInitable.swift in Sources */,
 				C9F3553521E4BAAE00D8B26D /* SearchService.swift in Sources */,
 				C9F3555821E5057000D8B26D /* PaddingLabel.swift in Sources */,
@@ -510,10 +561,13 @@
 				C9F3553A21E4BB6500D8B26D /* TikiAPI.swift in Sources */,
 				C9F3554021E4BE0900D8B26D /* ServiceError.swift in Sources */,
 				C92D1C1321E484850089FF97 /* AppDelegate.swift in Sources */,
+				C9F3556421E5BF6F00D8B26D /* RealmCrudable.swift in Sources */,
 				C9F3555621E5002A00D8B26D /* UIColor.swift in Sources */,
 				C9F3554821E4E37400D8B26D /* HotProductSearchResultCollectionViewCell.swift in Sources */,
 				C9F3555A21E506BD00D8B26D /* HotProductSearchResultCollectionHeaderView.swift in Sources */,
 				C9F3554A21E4E70400D8B26D /* UITableView.swift in Sources */,
+				C9F3556D21E5CF0E00D8B26D /* SearchedKeywordSearchResultTableHeaderView.swift in Sources */,
+				C9F3556B21E5CB0000D8B26D /* SearchedKeywordSearchResultTableViewCell.swift in Sources */,
 				C9F3554521E4BFF300D8B26D /* Networking.swift in Sources */,
 				C9F3553E21E4BD6D00D8B26D /* HotProduct.swift in Sources */,
 			);
