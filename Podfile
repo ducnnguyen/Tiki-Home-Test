@@ -5,7 +5,6 @@ target 'Tiki home test' do
   use_frameworks!
   
 pod 'Alamofire'
-pod 'IQKeyboardManager'
 pod 'Realm'
 pod 'SwiftyJSON'
 pod 'AlamofireImage'

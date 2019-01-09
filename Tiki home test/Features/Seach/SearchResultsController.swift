@@ -31,9 +31,25 @@ class SearchResultsController: UIViewController {
         prepareHotProductCollectionView()
         prepareTableView()
         observeSearchedKeywordsOnRealm()
+
+        // TODO: create keyboard manager or intergrate IQKeyboardManagerSwift
+        NotificationCenter.default.addObserver(self, selector: #selector(self.handleKeyboardWillShow(_:)), name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(self.handleKeyboardWillHide(_:)), name: UIResponder.keyboardWillHideNotification, object: nil)
     }
 
-    func observeSearchedKeywordsOnRealm() {
+    @objc func handleKeyboardWillShow(_ notification: Notification) {
+        guard let userInfo = (notification as NSNotification).userInfo else { return }
+        guard let keyboardbRect = (userInfo[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue else {
+            return
+        }
+        tableView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: keyboardbRect.height, right: 0)
+    }
+
+    @objc func handleKeyboardWillHide(_ notification: Notification) {
+        tableView.contentInset = .zero
+    }
+
+    private func observeSearchedKeywordsOnRealm() {
         searchedKeywordResults = SearchedKeyword.retrieve()
             .sorted(byKeyPath: SearchedKeyword.Property.createdDate.rawValue, ascending: false)
         realmNotificationToken = searchedKeywordResults.observe { [weak tableView] changes in
