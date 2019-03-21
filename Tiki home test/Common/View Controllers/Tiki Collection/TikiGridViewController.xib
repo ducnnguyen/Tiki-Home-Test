@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="TikiGridViewController" customModule="Tiki_home_test" customModuleProvider="target">
+            <connections>
+                <outlet property="collectionView" destination="uod-Qk-bwp" id="CFz-km-faw"/>
+                <outlet property="collectionViewHeightConstraint" destination="DQt-cx-1VX" id="VUb-Ku-f7M"/>
+                <outlet property="deleteAllButton" destination="wrn-tz-cI0" id="6qz-Nz-1Lo"/>
+                <outlet property="headerLabel" destination="BOb-cC-mzV" id="kz7-Dd-NVm"/>
+                <outlet property="view" destination="PUC-t9-Xxr" id="VCA-fb-ZJ5"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" ambiguous="YES" id="PUC-t9-Xxr">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="EPy-aj-J0A">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                    <subviews>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Obe-l8-rPz">
+                            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                            <subviews>
+                                <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kJU-UG-r4g">
+                                    <rect key="frame" x="8" y="0.0" width="359" height="44"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="248" verticalHuggingPriority="251" text="Header label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BOb-cC-mzV">
+                                            <rect key="frame" x="0.0" y="0.0" width="285" height="44"/>
+                                            <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wrn-tz-cI0">
+                                            <rect key="frame" x="285" y="0.0" width="74" height="44"/>
+                                            <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
+                                            <state key="normal" title="Delete all">
+                                                <color key="titleColor" red="1" green="0.57637232540000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            </state>
+                                            <connections>
+                                                <action selector="deleteAllButtonTapped" destination="-1" eventType="touchUpInside" id="9s0-rs-fu6"/>
+                                            </connections>
+                                        </button>
+                                    </subviews>
+                                </stackView>
+                            </subviews>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <constraints>
+                                <constraint firstItem="kJU-UG-r4g" firstAttribute="leading" secondItem="Obe-l8-rPz" secondAttribute="leading" constant="8" id="Vzl-Qe-P2t"/>
+                                <constraint firstItem="kJU-UG-r4g" firstAttribute="top" secondItem="Obe-l8-rPz" secondAttribute="top" id="aZ2-SI-VQX"/>
+                                <constraint firstAttribute="height" constant="44" id="heM-Hg-8hX"/>
+                                <constraint firstAttribute="bottom" secondItem="kJU-UG-r4g" secondAttribute="bottom" id="qc5-T5-tHg"/>
+                                <constraint firstAttribute="trailing" secondItem="kJU-UG-r4g" secondAttribute="trailing" constant="8" id="wAZ-8i-1XD"/>
+                            </constraints>
+                        </view>
+                        <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="uod-Qk-bwp">
+                            <rect key="frame" x="0.0" y="44" width="375" height="623"/>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="165" id="DQt-cx-1VX"/>
+                            </constraints>
+                            <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="JT4-Ws-ifh">
+                                <size key="itemSize" width="250" height="139"/>
+                                <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                            </collectionViewFlowLayout>
+                            <cells/>
+                            <connections>
+                                <outlet property="dataSource" destination="-1" id="ZVp-vF-soD"/>
+                                <outlet property="delegate" destination="-1" id="Yv9-SK-oin"/>
+                            </connections>
+                        </collectionView>
+                    </subviews>
+                </stackView>
+            </subviews>
+            <color key="backgroundColor" red="0.0" green="0.97680455450000003" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="EPy-aj-J0A" firstAttribute="trailing" secondItem="q05-n1-WbV" secondAttribute="trailing" id="OWy-cB-38H"/>
+                <constraint firstItem="EPy-aj-J0A" firstAttribute="top" secondItem="PUC-t9-Xxr" secondAttribute="top" id="ap0-Yx-7cF"/>
+                <constraint firstItem="q05-n1-WbV" firstAttribute="bottom" secondItem="EPy-aj-J0A" secondAttribute="bottom" id="ezh-CY-BSG"/>
+                <constraint firstItem="EPy-aj-J0A" firstAttribute="leading" secondItem="q05-n1-WbV" secondAttribute="leading" id="xBS-uh-BR5"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="q05-n1-WbV"/>
+            <point key="canvasLocation" x="25" y="-65"/>
+        </view>
+    </objects>
+</document>
